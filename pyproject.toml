@@ -1,0 +1,57 @@
+[build-system]
+requires = [
+    "setuptools"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["openeds*"]
+
+[project]
+name = "openeds"
+version = "0.1.0"
+license = {file = "LICENSE.txt"}
+description = "1st place solution for OpenEDS 2020 Gaze Prediction challenge"
+maintainers = [
+    {name = "Skoblov Svyatoslav", email = "skoblov.svyatoslav@gmail.com"},
+    {name = "Anton Repushko", email = "repushko.a@gmail.com"},
+    {name = "Vladimir Mikheyushkin", email = "rozor0@yandex.ru"}
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "albumentations @ git+https://github.com/repushko/albumentations.git@3d_vectors_implementation",
+    "torch==1.11.0",
+    "torchvision~=0.12.0",
+    "tensorboard~=2.9.1",
+    "opencv_python~=4.6.0.66",
+    "imgaug~=0.4.0",
+    "numpy~=1.22.4",
+    "pandas~=1.4.2",
+    "scikit-learn~=1.1.1",
+    "tqdm~=4.64.0"
+]
+
+readme = "README.md"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Deep Learning",
+]
+
+[project.urls]
+homepage = "https://github.com/errorfunc/openeds"
+source = "https://github.com/errorfunc/openeds"
+tracker = "https://github.com/errorfunc/openeds/issues"
+
+[project.scripts]
+openeds-resize = "openeds.scripts.resize_dataset:run"
+openeds-assemble = "openeds.scripts.assemble_dataset:run"
+openeds-train = "openeds.scripts.train_estimation:run"
+openeds-infer = "openeds.scripts.infer_estimation:run"
+openeds-forecast = "openeds.scripts.infer_forecast:run"
+openeds-ensemble = "openeds.scripts.make_ensemble:run"
+
