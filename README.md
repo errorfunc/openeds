@@ -9,7 +9,7 @@
 - [Links](#links)
 
 #### Installation
-`pip install git+https://github.com/errorfunc/openeds2020.git`
+`pip install git+https://github.com/errorfunc/openeds.git`
 
 
 #### Usage
